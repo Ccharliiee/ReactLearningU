@@ -1,15 +1,19 @@
 import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
+import ExpensesFilter from "./ExpensesFilter";
 
 const Expenses = (props) => {
   return (
-    <Card className="expenses">
-      <ExpenseItem expenseDetail={props.expenses[0]} />
-      <ExpenseItem expenseDetail={props.expenses[1]} />
-      <ExpenseItem expenseDetail={props.expenses[2]} />
-      <ExpenseItem expenseDetail={props.expenses[3]} />
-    </Card>
+    <div>
+      <ExpensesFilter />
+
+      <Card className="expenses">
+        {props.expenses.map((expense) => (
+          <ExpenseItem expenseDetail={expense} />
+        ))}
+      </Card>
+    </div>
   );
 };
 
